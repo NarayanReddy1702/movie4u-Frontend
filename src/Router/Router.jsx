@@ -62,10 +62,7 @@ const router = createBrowserRouter([
         path: "profile",
         element: <ProtectRouter requiredRole="user"><Profile /></ProtectRouter>,
       },
-      {
-        path: "userTable",
-        element: <ProtectRouter requiredRole="user"><UserTable /></ProtectRouter>,
-      },
+      
 
       
     ],
@@ -85,7 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/update/:movieID",
         element: <UpdateAdmin />
-      }
+      },{
+        path: "/admin/userTable",
+        element: <UserTable />
+      },
     ]
   }
 ])
