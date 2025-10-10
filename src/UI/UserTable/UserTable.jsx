@@ -28,8 +28,8 @@ fetchAllUser()
   return (
     <>
      <div className="container mx-auto p-4 md:p-6">
-        <div className="overflow-x-auto shadow-md rounded-lg">
-          <table className="min-w-full w-max md:w-full bg-white border border-gray-300">
+       {allUser.length>0?  <div className="overflow-x-auto shadow-md rounded-lg">
+         <table className="min-w-full w-max md:w-full bg-white border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
                 <th className="px-4 md:px-6 py-2 md:py-3 border text-center border-gray-300 text-[10px] md:text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
@@ -54,7 +54,7 @@ fetchAllUser()
             </thead>
             <tbody className="bg-white">
            
-              {allUser.length==0? <p className="text-center mt-6 text-gray-600">There is no data yet...</p>:<>
+               <>
               {allUser.map((items,index)=>(
                 <tr key={items._id} className="hover:bg-gray-50" >
               <td className="px-4 md:px-6 py-2 md:py-4 border text-center border-gray-300 text-sm">{index+1}</td>
@@ -69,12 +69,12 @@ fetchAllUser()
               </td>
             </tr>
               ))}
-              </>}
+              </>
         
 
             </tbody>
           </table>
-        </div>
+        </div>:<p className="text-center py-5 text-gray-600">There is no data yet...</p>}
       </div>
      
     </>

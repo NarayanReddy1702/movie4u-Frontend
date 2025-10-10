@@ -137,7 +137,7 @@ function Admin() {
           </div>
         </div>
       ) : (
-        <p className="text-center mt-6 text-gray-600">There is no data yet...</p>
+        <p className="text-center py-10 text-gray-600">There is no data yet...</p>
       )}
     </>
   );
