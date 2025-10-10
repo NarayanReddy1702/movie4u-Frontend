@@ -50,10 +50,10 @@ function UserTable() {
               <td className="px-4 md:px-6 py-2 md:py-4 border text-center border-gray-300 text-sm">{val.email}</td>
               <td className="px-4 md:px-6 py-2 md:py-4 border text-center border-gray-300 text-sm">{val.password}</td>
               <td className="px-4 md:px-6 py-2 md:py-4 border text-center border-gray-300">
-                <button className='border-2 bg-green-600 text-white px-2 md:px-3 py-1 text-sm rounded-md hover:text-green-600 hover:bg-transparent hover:border-green-600 ' onClick={HandleUpdate}>Edit</button>
+                <button className='border-2 bg-green-600 text-white px-2 md:px-3 py-1 text-sm rounded-md hover:text-green-600 hover:bg-transparent hover:border-green-600 cursor-pointer' onClick={HandleUpdate}>Edit</button>
               </td>
               <td className="px-4 md:px-6 py-2 md:py-4 border text-center border-gray-300">
-                <button className='border-2 bg-red-600 text-white px-2 md:px-3 py-1 text-sm rounded-md hover:text-red-600 hover:bg-transparent hover:border-red-600' onClick={()=>handleDelete(val.id)}>Delete</button>
+                <button className='border-2 bg-red-600 text-white px-2 md:px-3 py-1 text-sm rounded-md hover:text-red-600 hover:bg-transparent hover:border-red-600 cursor-pointer' onClick={()=>handleDelete(val.id)}>Delete</button>
               </td>
             </tr>
             )

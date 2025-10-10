@@ -135,7 +135,7 @@ function SignUp() {
             </div>
 
             {/* Submit */}
-            <button className="sign-in-btn w-full p-2 bg-purple-600 text-white font-semibold text-sm rounded-md hover:bg-purple-700 transition duration-300">
+            <button className="sign-in-btn w-full p-2 cursor-pointer bg-purple-600 text-white font-semibold text-sm rounded-md hover:bg-purple-700 transition duration-300">
               Continue
             </button>
           </form>

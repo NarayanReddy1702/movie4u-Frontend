@@ -55,7 +55,7 @@ function AdminNav() {
                 alt="profile"
               />
             </div>
-             <button onClick={handleLogout} className="rounded-sm px-4 h-10 bg-red-500 text-white font-semibold">logout</button>
+             <button onClick={handleLogout} className="rounded-sm px-4 h-10 cursor-pointer bg-red-500 text-white font-semibold">logout</button>
             </div>
           </div>
         </div>

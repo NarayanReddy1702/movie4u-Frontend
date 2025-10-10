@@ -153,11 +153,11 @@ function Nav() {
               </div>
               <button
                 onClick={handleLogout}
-                className="rounded-sm px-4 h-10 bg-red-500 text-white font-semibold"
+                className="rounded-sm px-4 h-10 bg-red-500 cursor-pointer text-white font-semibold"
               >
                 logout
               </button>
-              {user.role==="admin"&& <button onClick={()=>navigate("/admin")} className="rounded-sm px-4 h-10 bg-blue-500 text-white font-semibold">
+              {user.role==="admin"&& <button onClick={()=>navigate("/admin")} className="rounded-sm px-4 h-10 cursor-pointer bg-blue-500 text-white font-semibold">
                  Admin
                 </button>}
             </div>
@@ -165,13 +165,13 @@ function Nav() {
             <>
               <Link
                 to="/SignUp"
-                className="border border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
+                className="border border-blue-600 cursor-pointer bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
               >
                 Signup
               </Link>
               <Link
                 to="/Login"
-                className="border border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
+                className="border cursor-pointer border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
               >
                 Login
               </Link>
@@ -249,7 +249,7 @@ function Nav() {
               </div>
               <button
                 onClick={handleLogout}
-                className="rounded-sm px-4 py-1 bg-red-500 text-white font-semibold"
+                className="rounded-sm cursor-pointer px-4 py-1 bg-red-500 text-white font-semibold"
               >
                 logout
               </button>
@@ -258,13 +258,13 @@ function Nav() {
             <div className="flex space-x-4 mt-2">
               <Link
                 to="/SignUp"
-                className="border border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
+                className="border cursor-pointer border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
               >
                 Signup
               </Link>
               <Link
                 to="/Login"
-                className="border border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
+                className="border cursor-pointer border-blue-600 bg-blue-500 px-4 py-2 rounded text-white text-sm font-medium hover:bg-transparent hover:text-blue-400 transition"
               >
                 Login
               </Link>
