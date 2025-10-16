@@ -17,6 +17,7 @@ import UserTable from "../UI/UserTable/UserTable";
 import ProtectRouter from "../Componates/ProtectRouter/ProtectRouter";
 import Profile from "../Componates/Profile";
 import UpdateUser from "../Componates/UpdateUser";
+import EditUser from "../Componates/EditUser";
 
 
 const router = createBrowserRouter([
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         path: "/admin/userTable",
         element: <UserTable />
       },
+      {
+        path:"/admin/editUser/:id",
+        element:<EditUser/>
+      }
     ]
   }
 ])
