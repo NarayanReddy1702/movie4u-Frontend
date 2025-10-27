@@ -35,7 +35,9 @@ function AdminNav() {
     <div className="Navigation w-full h-auto min-h-[12vh] flex items-center justify-center bg-zinc-950">
       <div className="nav-container flex flex-col md:flex-row w-full h-full px-4 md:px-14 py-4">
         <div className="logo flex items-center justify-center md:justify-start w-full md:w-[50%] h-full">
-          <h1 className="text-2xl md:text-[3.5vh] font-sans text-white font-semibold">Admin Movie4u</h1>
+          <img src="./movieLogo.png"
+            alt="Movie Logo"
+            className="w-35 h-20 object-cover cursor-pointer" onClick={()=>navigate("/admin")} />
         </div>
 
         <div className="menu flex items-center justify-center md:justify-end w-full md:w-[50%] h-full mt-4 md:mt-0">
@@ -46,7 +48,7 @@ function AdminNav() {
                 isActive("/admin/userTable") ? "text-blue-500" : "text-white hover:text-blue-600"
               }`}
             >
-              Show Users
+              Users list
             </NavLink>
 
             <NavLink
@@ -55,7 +57,7 @@ function AdminNav() {
                 isActive("/admin") ? "text-blue-500" : "text-white hover:text-blue-600"
               }`}
             >
-              Show Admins
+              Movies List
             </NavLink>
 
             <NavLink
@@ -64,7 +66,7 @@ function AdminNav() {
                 isActive("/admin/add") ? "text-blue-500" : "text-white hover:text-gray-300"
               }`}
             >
-              Add Admin
+              Add New Movie
             </NavLink>
 
             <div className="flex gap-x-10 items-center">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../config";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function Admin() {
   const [adminList, setAdminList] = useState([]);
@@ -42,10 +43,11 @@ function Admin() {
     if (window.confirm(`Are you sure you want to delete this movie ID: ${id}?`)) {
       axios
         .delete(`${BASE_URL}api/movie/deleteMovie/${id}`, { withCredentials: true })
-        .then(() => {
+        .then((res) => {
           const updatedList = adminList.filter((movie) => movie._id !== id);
           setAdminList(updatedList);
           setDisplayData(updatedList);
+          toast.success(res.data?.message)
         })
         .catch((err) => console.log(err));
     }

@@ -119,7 +119,7 @@ const EditUser = () => {
 
           <button
             type="submit"
-            className="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-md transition"
+            className="w-full py-2 cursor-pointer bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-md transition"
           >
             Update Profile
           </button>

@@ -8,7 +8,7 @@ function AdminFooter() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             
                 <div className="space-y-4">
-                    <h3 className="text-xl font-bold">Company Name</h3>
+                    <img className='w-40 object-cover h-15' src="./movieLogo.png" alt="" />
                     <p className="text-gray-400">Making the world a better place through innovative solutions.</p>
                     <div className="flex space-x-4">
                     

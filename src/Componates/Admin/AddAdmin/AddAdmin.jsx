@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { BASE_URL } from "../../../config";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function AddAdmin() {
   const [movieDet, setMovieDet] = useState({
@@ -74,11 +75,11 @@ const navigate = useNavigate()
       withCredentials: true, 
     });
  
-    console.log(res.data);
+  
     
  
     if (res.data?.success) {
-      alert(res.data.message);
+      toast.success(res.data.message);
 
       // Reset form
       setMovieDet({
@@ -94,11 +95,11 @@ const navigate = useNavigate()
       setArr([0]);
       setTimeout(()=>{
         navigate("/admin")
-      },1000)
+      },2000)
     }
   } catch (err) {
     console.error(err);
-    alert("Failed to upload movie");
+    toast.error("Failed to upload movie");
   }
 };
 
@@ -299,7 +300,7 @@ const navigate = useNavigate()
         <div className="flex items-center justify-end">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
+            className="bg-blue-500 cursor-pointer w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
           >
             Submit
           </button>

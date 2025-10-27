@@ -3,6 +3,7 @@ import { IoAddCircleOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../../../config';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function UpdateAdmin() {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ function UpdateAdmin() {
 
   const updateData = async (id) => {
     if (!movieDet.title || !movieDet.category) {
-      alert("Please fill in all required fields");
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -84,11 +85,13 @@ function UpdateAdmin() {
           headers: { 'Content-Type': 'multipart/form-data' },
         }
       );
-      alert("Movie updated successfully!");
-      navigate("/Admin");
+      toast.success("Movie updated successfully!");
+     setTimeout(()=>{
+          navigate("/Admin");
+     },2000)
     } catch (error) {
-      console.error('Error updating movie:', error);
-      alert("Error updating movie. Please try again.");
+     
+      toast.error("Error updating movie. Please try again.");
     }
   };
 
