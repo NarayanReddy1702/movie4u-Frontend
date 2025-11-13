@@ -36,177 +36,106 @@ function Nav() {
   return (
     <>
       {/* Navbar */}
-  <nav className="w-full bg-zinc-950 shadow-md sticky top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:py-3">
-        
-        {/* Logo Section */}
-        <div className="flex items-center justify-between w-full md:w-auto">
-          <img
-            src="./movieLogo.png"
-            alt="Movie Logo"
-            className="w-35 h-20 object-cover cursor-pointer"
-            onClick={() => navigate("/")}
-          />
+      <nav className="w-full bg-zinc-950 shadow-md sticky top-0 left-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 md:py-3">
+          {/* Logo Section */}
+          <div className="flex items-center justify-between w-full md:w-auto">
+            <img
+              src="./movieLogo.png"
+              alt="Movie Logo"
+              className="w-35 h-20 object-cover cursor-pointer"
+              onClick={() => navigate("/")}
+            />
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-white focus:outline-none"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex flex-1 justify-center space-x-10">
-          {[
-            { path: "/", label: "Home" },
-            { path: "/Bollywood", label: "Bollywood" },
-            { path: "/WebSeries", label: "Web Series" },
-            { path: "/DualAudio", label: "Dual Audio" },
-            { path: "/TVShow", label: "TV Shows" },
-          ].map(({ path, label }) => (
-            <NavLink
-              key={path}
-              to={path}
-              className={`relative text-sm font-medium transition duration-300 ${
-                location.pathname === path
-                  ? "text-blue-400 after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-blue-400"
-                  : "text-gray-300 hover:text-blue-400"
-              }`}
+            {/* Mobile Menu Toggle */}
+            <button
+              className="md:hidden text-white focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {label}
-            </NavLink>
-          ))}
-        </div>
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
 
-        {/* Desktop Profile / Auth Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          {user ? (
-            <div className="flex items-center gap-x-6">
-              {/* Profile Picture */}
-              <div
-                onClick={() => navigate("/profile")}
-                className="w-11 h-11 rounded-full overflow-hidden border-2 border-blue-500 cursor-pointer hover:scale-105 transition"
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex flex-1 justify-center space-x-10">
+            {[
+              { path: "/", label: "Home" },
+              { path: "/Bollywood", label: "Bollywood" },
+              { path: "/WebSeries", label: "Web Series" },
+              { path: "/DualAudio", label: "Dual Audio" },
+              { path: "/TVShow", label: "TV Shows" },
+            ].map(({ path, label }) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={`relative text-sm font-medium transition duration-300 ${
+                  location.pathname === path
+                    ? "text-blue-400 after:absolute after:bottom-[-6px] after:left-0 after:w-full after:h-[2px] after:bg-blue-400"
+                    : "text-gray-300 hover:text-blue-400"
+                }`}
               >
-                <img
-                  src={user.profilePic}
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+                {label}
+              </NavLink>
+            ))}
+          </div>
 
-              {/* Logout Button */}
-              <button
-                onClick={handleLogout}
-                className="px-5 py-2 cursor-pointer bg-red-600 hover:bg-red-700 rounded-md text-white font-semibold text-sm transition"
-              >
-                Logout
-              </button>
-
-              {/* Admin Button */}
-              {user.role === "admin" && (
-                <button
-                  onClick={() => navigate("/admin")}
-                  className="px-5 py-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold text-sm transition"
-                >
-                  Admin
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="flex space-x-3">
-              <Link
-                to="/SignUp"
-                className="px-5 py-2 bg-blue-600 border border-blue-600 text-white rounded-md font-semibold text-sm hover:bg-transparent hover:text-blue-400 transition"
-              >
-                Sign Up
-              </Link>
-              <Link
-                to="/Login"
-                className="px-5 py-2 bg-blue-600 border border-blue-600 text-white rounded-md font-semibold text-sm hover:bg-transparent hover:text-blue-400 transition"
-              >
-                Login
-              </Link>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-zinc-900 border-t border-zinc-800 flex flex-col items-center py-4 space-y-3">
-          {[
-            { path: "/", label: "Home" },
-            { path: "/Bollywood", label: "Bollywood" },
-            { path: "/WebSeries", label: "Web Series" },
-            { path: "/DualAudio", label: "Dual Audio" },
-            { path: "/TVShow", label: "TV Shows" },
-          ].map(({ path, label }) => (
-            <NavLink
-              key={path}
-              to={path}
-              onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-medium transition ${
-                location.pathname === path
-                  ? "text-blue-400"
-                  : "text-gray-300 hover:text-blue-400"
-              }`}
-            >
-              {label}
-            </NavLink>
-          ))}
-
-          {/* Auth Buttons for Mobile */}
-          <div className="flex flex-col space-y-3 mt-4 w-full px-6">
+          {/* Desktop Profile / Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
             {user ? (
-              <>
+              <div className="flex items-center gap-x-6">
+                {/* Profile Picture */}
+                <div
+                  onClick={() => navigate("/profile")}
+                  className="w-11 h-11 rounded-full overflow-hidden border-2 border-blue-500 cursor-pointer hover:scale-105 transition"
+                >
+                  <img src={user.profilePic} alt="Profile" className="w-full h-full object-cover" />
+                </div>
+
+                {/* Logout Button */}
                 <button
                   onClick={handleLogout}
-                  className="w-full py-2 bg-red-600 hover:bg-red-700 rounded-md text-white font-semibold text-sm transition"
+                  className="px-5 py-2 cursor-pointer bg-red-600 hover:bg-red-700 rounded-md text-white font-semibold text-sm transition"
                 >
                   Logout
                 </button>
+
+                {/* Admin Button */}
                 {user.role === "admin" && (
                   <button
-                    onClick={() => {
-                      navigate("/admin");
-                      setIsMenuOpen(false);
-                    }}
-                    className="w-full py-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold text-sm transition"
+                    onClick={() => navigate("/admin")}
+                    className="px-5 py-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold text-sm transition"
                   >
                     Admin
                   </button>
                 )}
-              </>
+              </div>
             ) : (
-              <>
+              <div className="flex space-x-3">
                 <Link
                   to="/SignUp"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full py-2 text-center bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold text-sm transition"
+                  className="px-5 py-2 bg-blue-600 border border-blue-600 text-white rounded-md font-semibold text-sm hover:bg-transparent hover:text-blue-400 transition"
                 >
                   Sign Up
                 </Link>
                 <Link
                   to="/Login"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full py-2 text-center bg-blue-600 hover:bg-blue-700 rounded-md text-white font-semibold text-sm transition"
+                  className="px-5 py-2 bg-blue-600 border border-blue-600 text-white rounded-md font-semibold text-sm hover:bg-transparent hover:text-blue-400 transition"
                 >
                   Login
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </div>
-      )}
-    </nav>
+      </nav>
+
+      {/* Remove middle dropdown for mobile — only right-side nav remains */}
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
